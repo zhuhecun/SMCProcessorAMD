@@ -43,6 +43,7 @@ bool SMCProcessorAMD::setupKeysVsmc(){
 
     // Cpu TEMP
     suc &= VirtualSMCAPI::addKey(KeyTCxD(0), vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78, new TempPackage(this, 0)));
+    suc &= VirtualSMCAPI::addKey(KeyTCxP(0), vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78, new TempPackage(this, 0)));
     suc &= VirtualSMCAPI::addKey(KeyTCxG(0), vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78));
     suc &= VirtualSMCAPI::addKey(KeyTCxJ(0), vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78));
 
@@ -51,6 +52,8 @@ bool SMCProcessorAMD::setupKeysVsmc(){
     auto isdigit = [](auto l) { return l >= '0' && l <= '8'; };
     bool isMob = !strncmp(model, "MacBook", strlen("MacBook"));
 
+
+    VirtualSMCAPI::addKey(KeyTCDD, vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78, new TempCore(this, 0)));
 
     // 核显温度
     VirtualSMCAPI::addKey(KeyTGDD, vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78, new TempCore(this, 0)));

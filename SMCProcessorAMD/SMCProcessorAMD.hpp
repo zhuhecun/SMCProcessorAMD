@@ -100,11 +100,13 @@ class SMCProcessorAMD : public IOService {
     static constexpr SMC_KEY KeyPCPT = SMC_MAKE_IDENTIFIER('P','C','P','T');
     static constexpr SMC_KEY KeyPCTR = SMC_MAKE_IDENTIFIER('P','C','T','R');
     static constexpr SMC_KEY KeyTCxD(size_t i) { return SMC_MAKE_IDENTIFIER('T','C',KeyIndexes[i],'D'); }
+    static constexpr SMC_KEY KeyTCxP(size_t i) { return SMC_MAKE_IDENTIFIER('T','C',KeyIndexes[i],'P'); }
     static constexpr SMC_KEY KeyTCxG(size_t i) { return SMC_MAKE_IDENTIFIER('T','C',KeyIndexes[i],'G'); }
     static constexpr SMC_KEY KeyTCxJ(size_t i) { return SMC_MAKE_IDENTIFIER('T','C',KeyIndexes[i],'J'); }
     static constexpr SMC_KEY KeyTCxT(size_t i) { return SMC_MAKE_IDENTIFIER('T','C',KeyIndexes[i],'T'); }
     static constexpr SMC_KEY KeyVCxC(size_t i) { return SMC_MAKE_IDENTIFIER('V','C',KeyIndexes[i],'C'); }
 
+    static constexpr SMC_KEY KeyTCDD = SMC_MAKE_IDENTIFIER('T', 'C', 'D', 'D');
     static constexpr SMC_KEY KeyTGDD = SMC_MAKE_IDENTIFIER('T', 'G', 'D', 'D');
     static constexpr SMC_KEY KeyVD0R = SMC_MAKE_IDENTIFIER('V', 'D', '0', 'R');
     static constexpr SMC_KEY KeyID0R = SMC_MAKE_IDENTIFIER('I', 'D', '0', 'R');
