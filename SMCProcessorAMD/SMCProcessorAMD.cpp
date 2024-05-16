@@ -57,11 +57,6 @@ bool SMCProcessorAMD::setupKeysVsmc(){
     auto isdigit = [](auto l) { return l >= '0' && l <= '8'; };
     bool isMob = !strncmp(model, "MacBook", strlen("MacBook"));
 
-    // 只有第一个核心是真正的CPU温度，其它的全是频率(GHz *10，比如3.3Ghz显示的是33）
-    for(int core = 0; core <= this->totalNumberOfPhysicalCores; core++){
-
-            VirtualSMCAPI::addKey(KeyTCxC(core), vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78, new ClockCore(this, core)));
-   }
 
     // 核显温度
     VirtualSMCAPI::addKey(KeyTGDD, vsmcPlugin.data, VirtualSMCAPI::valueWithSp(0, SmcKeyTypeSp78, new TempCore(this, 0)));
